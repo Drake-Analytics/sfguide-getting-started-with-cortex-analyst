@@ -8,7 +8,7 @@ CREATE ROLE cortex_user_role;
 GRANT DATABASE ROLE SNOWFLAKE.CORTEX_USER TO ROLE cortex_user_role;
 
 -- TODO: Replace <your_user> with your username
-GRANT ROLE cortex_user_role TO USER <your_user>;
+GRANT ROLE cortex_user_role TO USER --<your_user>;
 
 USE ROLE sysadmin;
 
@@ -20,7 +20,7 @@ CREATE OR REPLACE SCHEMA cortex_analyst_demo.revenue_timeseries;
 
 -- Create warehouse
 CREATE OR REPLACE WAREHOUSE cortex_analyst_wh
-    WAREHOUSE_SIZE = 'large'
+    WAREHOUSE_SIZE = 'x-small'
     WAREHOUSE_TYPE = 'standard'
     AUTO_SUSPEND = 60
     AUTO_RESUME = TRUE
