@@ -19,7 +19,7 @@ CREATE OR REPLACE DATABASE cortex_analyst_demo;
 CREATE OR REPLACE SCHEMA cortex_analyst_demo.revenue_timeseries;
 
 -- Create warehouse
-CREATE OR REPLACE WAREHOUSE cortex_analyst_wh
+CREATE OR REPLACE WAREHOUSE demo_wh
     WAREHOUSE_SIZE = 'x-small'
     WAREHOUSE_TYPE = 'standard'
     AUTO_SUSPEND = 60
@@ -27,8 +27,8 @@ CREATE OR REPLACE WAREHOUSE cortex_analyst_wh
     INITIALLY_SUSPENDED = TRUE
 COMMENT = 'Warehouse for Cortex Analyst demo';
 
-GRANT USAGE ON WAREHOUSE cortex_analyst_wh TO ROLE cortex_user_role;
-GRANT OPERATE ON WAREHOUSE cortex_analyst_wh TO ROLE cortex_user_role;
+GRANT USAGE ON WAREHOUSE demo_wh TO ROLE cortex_user_role;
+GRANT OPERATE ON WAREHOUSE demo_wh TO ROLE cortex_user_role;
 
 GRANT OWNERSHIP ON SCHEMA cortex_analyst_demo.revenue_timeseries TO ROLE cortex_user_role;
 GRANT OWNERSHIP ON DATABASE cortex_analyst_demo TO ROLE cortex_user_role;
@@ -37,7 +37,7 @@ GRANT OWNERSHIP ON DATABASE cortex_analyst_demo TO ROLE cortex_user_role;
 USE ROLE cortex_user_role;
 
 -- Use the created warehouse
-USE WAREHOUSE cortex_analyst_wh;
+USE WAREHOUSE demo_wh;
 
 USE DATABASE cortex_analyst_demo;
 USE SCHEMA cortex_analyst_demo.revenue_timeseries;
